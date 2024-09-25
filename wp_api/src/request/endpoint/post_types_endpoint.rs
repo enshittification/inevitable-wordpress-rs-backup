@@ -1,4 +1,4 @@
-use super::{DerivedRequest, Namespace};
+use super::{AsNamespace, DerivedRequest, WpNamespace};
 use crate::post_types::{
     PostType, SparsePostTypeDetailsFieldWithEditContext,
     SparsePostTypeDetailsFieldWithEmbedContext, SparsePostTypeDetailsFieldWithViewContext,
@@ -17,8 +17,8 @@ enum PostTypesRequest {
 }
 
 impl DerivedRequest for PostTypesRequest {
-    fn namespace() -> Namespace {
-        Namespace::WpV2
+    fn namespace() -> impl AsNamespace {
+        WpNamespace::WpV2
     }
 }
 

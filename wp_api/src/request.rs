@@ -18,16 +18,16 @@ const CONTENT_TYPE_JSON: &str = "application/json";
 const LINK_HEADER_KEY: &str = "Link";
 
 #[derive(Debug)]
-struct InnerRequestBuilder {
+pub struct InnerRequestBuilder {
     authentication: WpAuthentication,
 }
 
 impl InnerRequestBuilder {
-    fn new(authentication: WpAuthentication) -> Self {
+    pub fn new(authentication: WpAuthentication) -> Self {
         Self { authentication }
     }
 
-    fn get(&self, url: ApiEndpointUrl) -> WpNetworkRequest {
+    pub fn get(&self, url: ApiEndpointUrl) -> WpNetworkRequest {
         WpNetworkRequest {
             method: RequestMethod::GET,
             url: url.into(),
@@ -36,7 +36,7 @@ impl InnerRequestBuilder {
         }
     }
 
-    fn post<T>(&self, url: ApiEndpointUrl, json_body: &T) -> WpNetworkRequest
+    pub fn post<T>(&self, url: ApiEndpointUrl, json_body: &T) -> WpNetworkRequest
     where
         T: ?Sized + Serialize,
     {
@@ -50,7 +50,7 @@ impl InnerRequestBuilder {
         }
     }
 
-    fn delete(&self, url: ApiEndpointUrl) -> WpNetworkRequest {
+    pub fn delete(&self, url: ApiEndpointUrl) -> WpNetworkRequest {
         WpNetworkRequest {
             method: RequestMethod::DELETE,
             url: url.into(),
