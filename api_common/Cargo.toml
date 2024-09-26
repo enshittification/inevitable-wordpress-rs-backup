@@ -1,0 +1,34 @@
+[package]
+name = "api_common"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib", "cdylib", "staticlib"]
+name = "api_common"
+
+[dependencies]
+async-trait = { workspace = true }
+base64 = { workspace = true }
+futures = { workspace = true }
+http = { workspace = true }
+indoc = { workspace = true }
+url = { workspace = true }
+parse_link_header = { workspace = true }
+paste = { workspace = true }
+# regex = { workspace = true }
+serde = { workspace = true, features = [ "derive" ] }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+uniffi = { workspace = true }
+# uuid = { workspace = true, features = [ "v4" ] }
+# wp_contextual = { path = "../wp_contextual" }
+# wp_derive_request_builder = { path = "../wp_derive_request_builder", features = [ "generate_request_builder" ] }
+wp_serde_helper = { path = "../wp_serde_helper" }
+
+[dev-dependencies]
+rstest = { workspace = true }
+rstest_reuse = { workspace = true }
+
+[build-dependencies]
+uniffi = { workspace = true , features = [ "build", "cli" ] }

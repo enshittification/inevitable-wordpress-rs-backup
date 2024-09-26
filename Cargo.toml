@@ -1,5 +1,6 @@
 [workspace]
 members = [
+  "api_common",
   "jetpack_api",
   "wp_api",
   "wp_api_integration_tests",
